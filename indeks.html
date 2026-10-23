@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111827">
+  <title>Quiz Adventure</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="app-container">
+
+    <!-- HALAMAN INTRO -->
+    <section id="introScreen" class="screen active">
+      <div class="intro-content">
+        <div class="brand-logo">Q!</div>
+        <p class="eyebrow">LEARN · PLAY · WIN</p>
+        <h1>QUIZ <span>ADVENTURE</span></h1>
+        <p class="intro-description">
+          Belajar menjadi lebih menyenangkan melalui tantangan kuis.
+          Uji pengetahuanmu dan raih sertifikat kelulusan!
+        </p>
+        <div class="intro-trophy" aria-hidden="true">🏆</div>
+        <button id="startButton" class="btn btn-primary btn-large">
+          Mulai Sekarang →
+        </button>
+      </div>
+    </section>
+
+    <!-- HALAMAN LOGIN -->
+    <section id="loginScreen" class="screen">
+      <div class="login-card">
+        <button id="backToIntro" class="btn btn-ghost" type="button">
+          ← Kembali
+        </button>
+
+        <div class="brand-logo small-logo">Q!</div>
+        <h2>Selamat Datang!</h2>
+        <p class="muted">Masuk untuk memulai Quiz Adventure.</p>
+
+        <form id="loginForm">
+          <label for="role">Masuk sebagai</label>
+          <select id="role" name="role" required>
+            <option value="murid">Murid</option>
+            <option value="guru">Guru</option>
+          </select>
+
+          <label for="username">Nama pengguna</label>
+          <input id="username" name="username" type="text"
+                 maxlength="50" placeholder="Masukkan nama pengguna"
+                 autocomplete="username" required>
+
+          <label for="password">Kata sandi</label>
+          <div class="password-wrapper">
+            <input id="password" name="password" type="password"
+                   minlength="6" placeholder="Minimal 6 karakter"
+                   autocomplete="current-password" required>
+            <button id="togglePassword" type="button" class="password-toggle">
+              Lihat
+            </button>
+          </div>
+
+          <button class="btn btn-primary full-width" type="submit">
+            Masuk
+          </button>
+        </form>
+
+        <p class="login-note">
+          Catatan: login pada versi ini masih berupa demo lokal,
+          belum terhubung ke server.
+        </p>
+      </div>
+    </section>
+
+    <!-- DASHBOARD -->
+    <section id="mainScreen" class="screen">
+      <header class="topbar">
+        <a id="brandHome" class="brand" href="#" aria-label="Menu utama">
+          <span class="brand-logo small-logo">Q!</span>
+          <span>Quiz Adventure</span>
+        </a>
+        <button id="logoutButton" class="btn btn-outline" type="button">
+          Keluar
+        </button>
+      </header>
+
+      <section class="welcome-panel">
+        <div>
+          <p class="eyebrow">DASHBOARD</p>
+          <h1>Halo, <span id="displayName">Murid</span>!</h1>
+          <p id="roleDescription" class="muted">
+            Selamat datang di Quiz Adventure.
+          </p>
+        </div>
+        <div class="welcome-emoji" aria-hidden="true">🚀</div>
+      </section>
+
+      <!-- DASHBOARD MURID -->
+      <section id="studentContent">
+        <div class="section-heading">
+          <div>
+            <h2>Pilih Petualanganmu</h2>
+            <p class="muted">Pilih pelajaran dan mulai kerjakan kuis.</p>
+          </div>
+        </div>
+
+        <div class="game-grid">
+          <button class="game-card game-purple" data-game="Pengetahuan Umum" type="button">
+            <span class="game-icon">🌎</span>
+            <strong>Pengetahuan Umum</strong>
+            <span>Uji wawasanmu</span>
+          </button>
+
+          <button class="game-card game-blue" data-game="Sains" type="button">
+            <span class="game-icon">🔬</span>
+            <strong>Sains</strong>
+            <span>Jelajahi ilmu pengetahuan</span>
+          </button>
+
+          <button class="game-card game-orange" data-game="Teknologi" type="button">
+            <span class="game-icon">💻</span>
+            <strong>Teknologi</strong>
+            <span>Kenali dunia digital</span>
+          </button>
+
+          <button class="game-card game-green" data-game="Sejarah" type="button">
+            <span class="game-icon">🏛️</span>
+            <strong>Sejarah</strong>
+            <span>Kenali masa lalu</span>
+          </button>
+
+          <button class="game-card game-pink" data-game="Agama Islam" type="button">
+            <span class="game-icon">📖</span>
+            <strong>Agama Islam</strong>
+            <span>Pelajari pengetahuan Islam</span>
+          </button>
+
+          <button class="game-card game-cyan" data-game="Matematika" type="button">
+            <span class="game-icon">🧮</span>
+            <strong>Matematika</strong>
+            <span>Asah kemampuan berhitung</span>
+          </button>
+        </div>
+
+        <div class="student-extra-grid">
+          <button class="extra-card" data-qa-action="my-results" type="button">
+            <span class="extra-icon">📊</span>
+            <span>
+              <strong>Nilai Saya</strong>
+              <small>Lihat hasil kuis setiap pelajaran</small>
+            </span>
+            <span class="extra-arrow">→</span>
+          </button>
+
+          <button class="extra-card" data-qa-action="certificates" type="button">
+            <span class="extra-icon">🏆</span>
+            <span>
+              <strong>Sertifikat Saya</strong>
+              <small>Lihat sertifikat dari pelajaran yang lulus</small>
+            </span>
+            <span class="extra-arrow">→</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- DASHBOARD GURU -->
+      <section id="teacherContent" hidden>
+        <div class="section-heading">
+          <div>
+            <h2>Dashboard Guru</h2>
+            <p class="muted">Kelola soal dan periksa hasil belajar murid.</p>
+          </div>
+        </div>
+
+        <div class="teacher-grid">
+          <button class="teacher-card" data-teacher-action="Buat Kuis" type="button">
+            <span class="teacher-icon">✏️</span>
+            <strong>Buat Kuis</strong>
+            <span>Tambahkan soal baru</span>
+          </button>
+
+          <button class="teacher-card" data-teacher-action="Kelola Soal" type="button">
+            <span class="teacher-icon">📝</span>
+            <strong>Kelola Soal</strong>
+            <span>Edit atau hapus soal</span>
+          </button>
+
+          <button class="teacher-card" data-teacher-action="Hasil Murid" type="button">
+            <span class="teacher-icon">📈</span>
+            <strong>Hasil Murid</strong>
+            <span>Lihat nilai dan periksa esai</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- PANEL DINAMIS UNTUK KUIS, NILAI, DAN SERTIFIKAT -->
+      <section id="qaPanel" hidden aria-live="polite"></section>
+    </section>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
